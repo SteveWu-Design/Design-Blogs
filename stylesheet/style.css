@@ -1,0 +1,134 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Roboto Slab", serif;
+}
+
+nav {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    background-color: white;
+    top: 0;
+}
+
+nav p {
+    font-size: 18pt;
+    margin: 0 20px;
+}
+
+nav div {
+    display: flex;
+    
+}
+
+span {
+    font-size: 12pt;
+    color: gray;
+}
+
+button {
+    height: 68px;
+    width: auto;
+    font-family: "Roboto Slab", serif;
+    font-size: 12pt;
+    padding: 20px;
+    border: 0;
+    background-color: white;
+}
+
+button:hover {
+    background-color: rgb(236, 236, 236);
+}
+
+header img {
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 110px 100px 110px;
+}
+
+article {
+    max-width: 800px;
+}
+
+#contact, #contact img {
+    display: flex;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+article section {
+    margin-top: 100px;
+}
+
+article section h1 {
+    font-size: 30pt;
+    font-weight: normal;
+}
+
+article section video {
+    width: 100%;
+}
+
+article section h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 22pt;
+}
+
+article section p {
+    font-size: 18pt;
+}
+
+article section .in-text-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+article section img {
+    width: 100%;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer p {
+    padding: 0px 30px;
+}
+
+.grid {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.grid a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+}
+
+.grid a img {
+    height: 200px;
+}
