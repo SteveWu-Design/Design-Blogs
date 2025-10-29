@@ -11,13 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="topBtnAnchor"></div><div id="footerBtnAnchor"></div>
     <nav>
-        <p>
-            <strong>Apple Health Redesign:</strong> 
-            Pitch Scene Documentation
-            <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD</span>
-        </p>
-        <button id="topBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+        <div>
+            <a id="homeBtn" href="../../index.html">
+                <img src="../../images/icons/Blog Logo.png" alt="Blog Logo">
+            </a>
+            <p>
+                <strong>Apple Health Redesign:</strong> 
+                Pitch Scene Documentation
+                <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD</span>
+            </p>
+        </div>
+        <button id="topBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
     </nav>
     <header>
         <img src="images/banner.png" alt="banner image" />
@@ -29,6 +35,7 @@
                     <strong>Apple Health Redesign:</strong></br>
                     Pitch Scene Documentation</br>
                     <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD</span>
+                    <span>2025 October 21</span>
                 </h1>
                 <video controls autoplay muted loop>
                     <source src="images/apple health pitch final.mp4" type="video/mp4">
@@ -49,7 +56,7 @@
 
             <section>
                 <h2>Scene Setup</h2>
-                <p>Before starting building anything, I decided to put in some background texture and lights for context. I used <a href="https://polyhaven.com/a/studio_small_09">this</a> HDRIs from Poly Heaven because it has a clean white background.</p>
+                <p>Before starting building anything, I decided to put in some background texture and lights for context. I used <a target="_blank" href="https://polyhaven.com/a/studio_small_09">this</a> HDRIs from Poly Heaven because it has a clean white background.</p>
                 <div class="in-text-image">
                     <img src="https://cdn.polyhaven.com/asset_img/primary/studio_small_09.png?height=760&quality=95" alt="preview of the studio HDRIs" />
                     <span>preview of the HDRIs from Poly Heaven</span>
@@ -63,7 +70,7 @@
 
             <section>
                 <h2>Modeling the iPhone</h2>
-                <p>I started modeling the iPhone. One highlight during this process is the Bevel edges tool, it creates faces to round sharp edges so I could achieve the round corners of the iPhone. I used <a href="https://sketchfab.com/3d-models/apple-logo-dc39f733d8d84f5c86e4b6c1270e9c50">this</a> Apple logo model from Sketchfab.</p>
+                <p>I started modeling the iPhone. One highlight during this process is the Bevel edges tool, it creates faces to round sharp edges so I could achieve the round corners of the iPhone. I used <a target="_blank" href="https://sketchfab.com/3d-models/apple-logo-dc39f733d8d84f5c86e4b6c1270e9c50">this</a> Apple logo model from Sketchfab.</p>
                 <div class="in-text-image">
                     <img src="images/iphone model.png" alt="iPhone model" />
                     <span>iPhone model!</span>
@@ -83,7 +90,7 @@
 
             <section>
                 <h2>Other Preparation for Animation</h2>
-                <p>Since the Apple Watch isn't the focus. I used <a href="https://sketchfab.com/3d-models/apple-watch-series-9-3d43ceaf6e494131997f39c1c77d8b87">this</a> Sketchfab model and added a screen using the same method.</p>
+                <p>Since the Apple Watch isn't the focus. I used <a target="_blank" href="https://sketchfab.com/3d-models/apple-watch-series-9-3d43ceaf6e494131997f39c1c77d8b87">this</a> Sketchfab model and added a screen using the same method.</p>
                 <div class="in-text-image">
                     <img src="images/iphone and watch.png" alt="iPhone and Apple Watch model" />
                     <span>iPhone and Apple Watch. Family photo!</span>
@@ -121,17 +128,17 @@
 
             <section>
                 <h2>References</h2>
-                <p>Small Studio HDRIs: <a href="https://polyhaven.com/a/studio_small_09">Link</a></p>
-                <p>Apple Logo Model: <a href="https://sketchfab.com/3d-models/apple-logo-dc39f733d8d84f5c86e4b6c1270e9c50">Link</a></p>
-                <p>Apple Watch Model: <a href="https://sketchfab.com/3d-models/apple-watch-series-9-3d43ceaf6e494131997f39c1c77d8b87">Link</a></p>
-                <p>Apple Watch Screen: <a href="https://support.apple.com/pa-in/guide/watch/apda88aefe4c/watchos">Link</a></p>
+                <p>Small Studio HDRIs: <a target="_blank" href="https://polyhaven.com/a/studio_small_09">Link</a></p>
+                <p>Apple Logo Model: <a target="_blank" href="https://sketchfab.com/3d-models/apple-logo-dc39f733d8d84f5c86e4b6c1270e9c50">Link</a></p>
+                <p>Apple Watch Model: <a target="_blank" href="https://sketchfab.com/3d-models/apple-watch-series-9-3d43ceaf6e494131997f39c1c77d8b87">Link</a></p>
+                <p>Apple Watch Screen: <a target="_blank" href="https://support.apple.com/pa-in/guide/watch/apda88aefe4c/watchos">Link</a></p>
             </section>
         </article>
     </main>
     <footer>
         <p>All rights reserved © 2025 Steve Wu</p>
-        <button id="footerBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+        <button id="footerBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
     </footer>
-    <script src="../../scripts/script.js"></script>
+    <script src="../../scripts/btnScroll.js"></script>
 </body>
 </html>

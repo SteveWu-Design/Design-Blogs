@@ -9,15 +9,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="topBtnAnchor"></div><div id="footerBtnAnchor"></div>
     <nav>
-        <p>
-            <strong>Business Engagement:</strong> 
-            My Opportunity with Meta
-            <span>by Steve Wu | GIXD 514 Writing for Interation | ACCD</span>
-        </p>
-        <button id="topBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+        <div>
+            <a id="homeBtn" href="../../index.html">
+                <img src="../../images/icons/Blog Logo.png" alt="Blog Logo">
+            </a>
+            <p>
+                <strong>Business Engagement:</strong> 
+                My Opportunity with Meta
+                <span>by Steve Wu | GIXD 514 Writing for Interation | ACCD</span>
+            </p>
+        </div>
+
+        <div>
+            <button id="tocBtn" class="scrollBtn">Table of Content</button>
+            <button id="topBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+        </div>
     </nav>
     <header>
         <img src="images/banner.png" alt="banner image" />
@@ -30,6 +42,7 @@
                     My Opportunity with Meta</br>
                     SWOT analysis & My Strategy</br>
                     <span>by Steve Wu | GIXD 514 Writing for Interation | ACCD</span>
+                    <span>2025 October 28</span>
                 </h1>
             </section>
             
@@ -40,17 +53,76 @@
                 <p>With strong curiosity about XR's future and Meta's leadership in this space, I'm strongly motivated to understand the company's goals and challenges and explore how I can contribute to its vision.</p>
             </section>
 
-            <section>
-                <h2>Table of Content</h2>
+            <section id="tocBtnAnchor">
+                <h2>🔖 Table of Content</h2>
+                <ol class="tableOfContent">
+                    <li>
+                        <h3 id="c1Btn" class="scrollBtn"><strong>Chapter 1</strong> Business Goals & Challenges</h3>
+                        <ol>
+                            <li id="c1s1Btn" class="scrollBtn"><p><strong>Annual Report</strong> Revenue Trends, Projected Risks & Mitigations</p></li>
+                            <li id="c1s2Btn" class="scrollBtn"><p><strong>Leadership Team</strong> Mark Zuckerberg's Letter to Stakeholders</p></li>
+                            <li class="scrollBtn"><p><strong>Earning Call</strong> Meta's Focus areas & Plan</p></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <h3 class="scrollBtn"><strong>Chapter 2</strong> SWOT</h3>
+                    </li>
+                    <li>
+                        <h3 class="scrollBtn"><strong>Chapter 3</strong> My Opportunities</h3>
+                    </li>
+                </ol>
             </section>
 
-            <section>
-                <h2>title</h2>
-                <p>text</p>
-                <div class="in-text-image">
-                    <img src="https://cdn.polyhaven.com/asset_img/primary/studio_small_09.png?height=760&quality=95" alt="preview of the studio HDRIs" />
-                    <span>img caption</span>
-                </div>
+            <section id="c1BtnAnchor">
+                <hr/>
+                <h2><strong>Chapter 1</strong><br/> Business Goals & Challenges</h2>
+                <hr/>
+                <p>In this chapter, I will walk through data, articles, and talks from <a target="_blank" style="color: black;" href="https://investor.atmeta.com/home/default.aspx">Meta Investor Relations</a> website in order to understand Meta's business goals and challenegs at this time. </p>
+                
+                <section>
+                    <h3 id="c1s1BtnAnchor">
+                        <strong>Annual Report</strong><br/>
+                        Revenue Trends, Projected Risks & Mitigations
+                    </h3>
+                    <p>First of all, Let's look at Meta's Revenue Annual Report from the last quarter of 2023 to the second quarter of 2025 and look for some trends or projected risks.</p>
+                    <div class="in-text-image">
+                        <img src="images/Meta Revenue Annual Report.png" alt="Meta Revenue Annual Report" />
+                        <span>Table has been cropped for needed data. Original table from <a  target="_blank" style="color:grey;" href="https://s21.q4cdn.com/399680738/files/doc_financials/2025/q2/Earnings-Presentation-Q2-2025-FINAL.pdf">Meta Earnings Presentation Q2 2025</a></span>
+                    </div>
+                    <p><strong>Family of Apps(FOA):</strong> Facebook, Instagram, Messenger, WhatsApp, and other services.</p>
+                    <p><strong>Reality Labs(RL):</strong> virtual, augmented, and mixed reality related consumer hardware, software, and content. e.g. Meta Quest XR headset</p>
+                    <p>Looking at this report, the income of the FOA is clearly the greatest portion of Meta's revenue. On the other hand, the RL operations(the XR part) is still costing Meta. However, there are a few spikes of RL revenue at the launch of new products.</p>
+                    <p>With that and additional data from the <a target="_blank" style="color: black;" href="https://investor.atmeta.com/financials/default.aspx">Balance Sheet</a> or the <a target="_blank" style="color: black;" href="https://investor.atmeta.com/financials/default.aspx">Income Statement</a>. We can see some trends in Meta's revenue:</p>
+                    <ul>
+                        <li><p>Meta's revenue is <strong>steadly growing</strong> from Q2 2023 to Q2 2025 — about a 48% increase over two years.</p>
+                            <ul>
+                                <li><span>
+                                    FOA drove all profits, over 95% of Meta's revenue comes from advertising in FOA.
+                                </span></li>
+                                <li><span>
+                                    Income from operations increased more than double.
+                                </span></li>
+                            </ul>
+                        </li>
+                        <li><p>Meanwhile, Meta's research and development investment in XR and AI <strong>grew ~39%</strong>.</p>
+                            <ul>
+                                <li><span>
+                                    Investments including property, equipments, and Infrastructure etc.
+                                </span></li>
+                                <li><span>
+                                    RL operating losses presists since Q2 2023.
+                                </span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3 id="c1s2BtnAnchor">
+                        <strong>Leadership Team</strong><br/>
+                        Mark Zuckerberg's Letter to Stakeholders (2021)<span><a target="_blank" style="color: grey; margin-left: 10px;" href="https://about.fb.com/news/2021/10/founders-letter/">read the letter</a></span>
+                    </h3>
+                </section>
             </section>
 
             <section>
@@ -61,8 +133,8 @@
     </main>
     <footer>
         <p>All rights reserved © 2025 Steve Wu</p>
-        <button id="footerBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+        <button id="footerBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
     </footer>
-    <script src="../../scripts/script.js"></script>
+    <script src="../../scripts/btnScroll.js"></script>
 </body>
 </html>

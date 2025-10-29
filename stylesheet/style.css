@@ -13,16 +13,28 @@ nav {
     position: sticky;
     background-color: white;
     top: 0;
+    overflow: hidden;
+}
+
+nav a {
+    padding: 10px;
+}
+
+nav a img {
+    width: 48px;
 }
 
 nav p {
     font-size: 18pt;
-    margin: 0 20px;
+    white-space: nowrap;
+    margin: 0;
 }
 
 nav div {
+    max-width: 50%;
     display: flex;
-    
+    align-items: center;
+    justify-content: flex-start;
 }
 
 span {
@@ -30,7 +42,7 @@ span {
     color: gray;
 }
 
-button {
+nav button, footer button {
     height: 68px;
     width: auto;
     font-family: "Roboto Slab", serif;
@@ -40,8 +52,12 @@ button {
     background-color: white;
 }
 
-button:hover {
+nav button:hover, footer button:hover, nav a:hover {
     background-color: rgb(236, 236, 236);
+}
+
+nav button img, footer button img, nav a img {
+    height: 100%;
 }
 
 header img {
@@ -60,7 +76,7 @@ article {
     max-width: 800px;
 }
 
-#contact, #contact img {
+.contact, .contact img {
     display: flex;
     margin-right: 10px;
     width: 40px;
@@ -131,4 +147,18 @@ footer p {
 
 .grid a img {
     height: 200px;
+}
+
+@media (max-width: 530px) {
+    main {
+        padding: 30px;
+    }
+
+    article section:first-child {
+        margin-top: 50px;
+    }
+
+    nav {
+        align-items: flex-start;
+    }
 }

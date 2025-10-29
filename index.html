@@ -11,14 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="topBtnAnchor"></div><div id="footerBtnAnchor"></div>
     <nav>
-        <p>
-            <strong>Steve's Design Blog</strong> 
-            <span>Have fun reading!</span>
-        </p>
         <div>
-            <button id="contactBtn">Contact</button>
-            <button id="topBtn"><img src="images/icons/arrow-up.svg" alt="top arrow icon"></button>
+            <a id="homeBtn" href="index.html">
+                <img src="images/icons/Blog Logo.png" alt="Blog Logo">
+            </a>
+            <p>
+                <strong>Steve's Design Blog</strong> 
+                <span>Have fun reading!</span>
+            </p>
+        </div>
+        
+        <div>
+            <button id="contactBtn" class="scrollBtn">Contact</button>
+            <button id="topBtn" class="scrollBtn"><img src="images/icons/arrow-up.svg" alt="top arrow icon"></button>
         </div>
     </nav>
     <header>
@@ -26,12 +33,12 @@
     </header>
     <main>
         <article>
-            <section>
+            <section id="contactBtnAnchor">
                 <h1>
                     <strong>Greetings!</strong></br>
                     Welcome to Steve's Design Blog</br>
                     <span>by Steve Wu</span>
-                    <div id="contact">
+                    <div class="contact">
                         <a href="https://www.linkedin.com/in/stevewudesign/"><img src="images/icons/linkedin.svg" alt="icon of Linkedin"/></a>
                         <a href="mailto:stevewudesign@gmail.com"><img src="images/icons/email.svg" alt="icon of Email"/></a>
                     </div>
@@ -44,20 +51,20 @@
                 <img src="images/blogcovers/3D-Pitch-Scene-Documentation.png" alt="banner image of blogpage" />
                 <p>Apple Health Redesign: Pitch Scene Documentation</p>
             </a>
-            <a href="https://medium.com/artcenter-graduate-interaction-design/time-to-jump-dimensions-the-future-of-hci-design-the-roadmap-of-becoming-a-xr-designer-c9753eb78e54">
+            <a target="_blank" href="https://medium.com/artcenter-graduate-interaction-design/time-to-jump-dimensions-the-future-of-hci-design-the-roadmap-of-becoming-a-xr-designer-c9753eb78e54">
                 <img src="images/blogcovers/Time-To-Jump-Demensions.png" alt="banner image of blogpage" />
                 <p>Time to Jump Dimensions on Medium.com</p>
             </a>
             <a href="blogpages/Business-Engagement-With-Meta/index.html">
                 <img src="images/blogcovers/Business-Engagement-with-Meta.png" alt="banner image of blogpage" />
-                <p>Business Engagemebt with Meta</p>
+                <p>Business Engagement with Meta</p>
             </a>
         </section>
     </main>
     <footer>
         <p>All rights reserved © 2025 Steve Wu</p>
-        <button id="footerBtn"><img src="images/icons/arrow-up.svg" alt="top arrow icon"></button>
+        <button id="footerBtn" class="scrollBtn"><img src="images/icons/arrow-up.svg" alt="top arrow icon"></button>
     </footer>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/btnScroll.js"></script>
 </body>
 </html>

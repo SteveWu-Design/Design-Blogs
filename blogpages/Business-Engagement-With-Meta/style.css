@@ -1,0 +1,17 @@
+h3 {
+    font-size: 20pt;
+}
+
+h3 strong, h2 strong {
+    color: #0066E5;
+    margin-right: 5px;
+}
+
+ol {
+    list-style-type: none;
+}
+
+ol .scrollBtn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
