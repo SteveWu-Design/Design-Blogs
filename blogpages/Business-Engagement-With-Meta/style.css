@@ -15,3 +15,22 @@ ol .scrollBtn:hover {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.swot>ul {
+    padding-left: 10px;
+}
+
+.swot>ul>li {
+    padding-left: 10px;
+    border-left: #0066E5 solid 5px;
+    list-style-type: none;
+}
+
+.swotItem:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
