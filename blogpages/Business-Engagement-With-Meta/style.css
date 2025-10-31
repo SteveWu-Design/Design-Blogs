@@ -34,3 +34,7 @@ ol .scrollBtn:hover {
 .hidden {
     display: none;
 }
+
+span a {
+    overflow-wrap: anywhere;
+}
