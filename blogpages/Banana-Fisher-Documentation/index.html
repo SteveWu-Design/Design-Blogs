@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Health Redesign Pitch Scene Documentation</title>
+    <link rel="icon" type="image/x-icon" href="../../images/icons/favicon.ico?">
+    <link rel="stylesheet" href="../../stylesheet/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="topBtnAnchor"></div><div id="footerBtnAnchor"></div>
+    <nav>
+        <div>
+            <a id="homeBtn" href="../../index.html">
+                <img src="../../images/icons/Blog Logo.png" alt="Blog Logo">
+            </a>
+            <p>
+                <strong>Banana Fishing:</strong> 
+                Documentation of P5js Animation 
+                <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD 19 November, 2025</span>
+            </p>
+        </div>
+
+        <button id="topBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+    </nav>
+    <header>
+        <iframe src="https://editor.p5js.org/stevewu-accd/full/qNfbiYmKU"></iframe>
+    </header>
+    <main>
+        <article>
+            <section>
+                <h1>
+                    <strong>Banana Fishing:</strong></br>
+                    Documentation of P5js Animation</br>
+                    <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD</span>
+                    <span>19 November, 2025</span>
+                </h1>
+            </section>
+                
+            <section>
+                <h2>
+                    Introduction
+                </h2>
+                <p>
+                    This is the documentation for how I made the P5.js animation you see on the banner. You can also view the code <a href="https://editor.p5js.org/stevewu-accd/full/qNfbiYmKU">here</a>.
+                </p>
+            </section>
+
+            <section>
+                <h2>
+                    Step 1: Sketch
+                </h2>
+                <p>First, I sketched the composition on my ipad. Previewing the assets I might need later.</p>
+                <div class="in-text-image">
+                    <img src="images/sketch.png" alt="sketch of the composition" />
+                    <span>sketch of the composition</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Step 2: Prepare the Assets
+                </h2>
+                <p>Then I use Figma to create the assets.</p>
+                <div class="in-text-image">
+                    <img src="images/draw assets on Figma.png" alt="assets on Figma" />
+                    <span>assets on Figma</span>
+                </div>
+                <p>I segmented the layers of the monkey so I can control the animation with more details.</p>
+                <div class="in-text-image">
+                    <img src="images/segement elemets.png" alt="segemented elemets" />
+                    <span>segemented elemets</span>
+                </div>
+                <p>Eventually, I exported these assets in svg format.</p>
+            </section>
+
+            <section>
+                <h2>
+                    Step 3: Upload to P5.js
+                </h2>
+                <p>I uploaded these assets to P5.js editor, and assembled them on the canvas.</p>
+                <div class="in-text-image">
+                    <img src="images/upload.png" alt="P5.js canvas" />
+                    <span>P5.js canvas</span>
+                </div>
+                <p>I also used a loop to create the rope on top of the bananas. You can notice I accumulated the translation function, which is useful later.</p>
+            </section>
+
+            <section>
+                <h2>
+                    Step 4: Animations
+                </h2>
+                <p>I animated the rope and the bananas using rotation.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/animate rope.mp4" type="video/mp4">
+                    </video>
+                    <span>rope animation</span>
+                </div>
+                <p>Because the ropes are accumulated. The rotation can also accumulate, creating this swinging motion.</p>
+                <p>I also used trigonometry to make the pendulum animation.</p>
+                <p>Similar strategies are used to animate the monkey as well. I paced the speed of each elements of the monkey differently. This way the animation looks more lively.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/animate monkey.mp4" type="video/mp4">
+                    </video>
+                    <span>monkey animation</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Step 5: Background Animation
+                </h2>
+                <p>Lastly, I want to make the background more interesting. I used the noise function to create a heart beat looking line.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/background.mp4" type="video/mp4">
+                    </video>
+                    <span>background animation</span>
+                </div>
+                <p>In order to make the line wiggles this way. I also used trigonometry to control the scale of the noise so it changes with a timed pace. I also make the scale of the change proportional to the distence to the center.</p>
+            </section>
+
+            <section>
+                <h2>
+                    Conclusion
+                </h2>
+                <p>Finally, the animation is done!</p>
+                <div class="in-text-image">
+                    <iframe src="https://editor.p5js.org/stevewu-accd/full/qNfbiYmKU"></iframe>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>All rights reserved © 2025 Steve Wu</p>
+        <button id="footerBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+    </footer>
+    <script src="script.js"></script>
+    <script src="../../scripts/btnScroll.js"></script>
+</body>
+</html>
