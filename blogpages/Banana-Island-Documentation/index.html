@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Island Documentation</title>
+    <link rel="icon" type="image/x-icon" href="../../images/icons/favicon.ico?">
+    <link rel="stylesheet" href="../../stylesheet/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="topBtnAnchor"></div><div id="footerBtnAnchor"></div>
+    <nav>
+        <div>
+            <a id="homeBtn" href="../../index.html">
+                <img src="../../images/icons/Blog Logo.png" alt="Blog Logo">
+            </a>
+            <p>
+                <strong>Banana Island:</strong> 
+                P5js Ecosystem Simulation
+                <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD 29 November, 2025</span>
+            </p>
+        </div>
+
+        <button id="topBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+    </nav>
+    <header>
+        <iframe src="https://editor.p5js.org/stevewu-accd/full/iizYeLieY"></iframe>
+    </header>
+    <main>
+        <article>
+            <section>
+                <h1>
+                    <strong>Banana Island:</strong></br>
+                    P5js Ecosystem Simulation
+                    <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD</span>
+                    <span>29 November, 2025</span>
+                </h1>
+            </section>
+                
+            <section>
+                <h2>
+                    Introduction
+                </h2>
+                <p>
+                    Welcome to another week of my P5.js exploration! This time, I made a small ecosystem on an Island. In this article you can see the documentation for how I made this animation using Objects-oriented system. You can also view the code <a href="https://editor.p5js.org/stevewu-accd/full/iizYeLieY">here</a>.
+                </p>
+            </section>
+
+            <section>
+                <h2>
+                    Step 1: UML diagram & Flow Chart
+                </h2>
+                <p>First, I brainstormed how the ecosystem will operate and cycle on its own. What kind of items/beings will be in there and how would they affect each others.</p>
+                <p>With these questions in mind, I created a UML diagram.</p>
+                <div class="in-text-image">
+                    <img src="images/UML Diagram.png" alt="UML Diagram of the ecosystem" />
+                    <span>UML Diagram of the ecosystem</span>
+                </div>
+                <p>I decided to put some monkeys, bananas and banana tress on a island. Monkeys can live by eating bananas and bananas trees can live by fertilizing on monkey's waste.</p>
+                <p>Then, for more detailed logic in the system, I created flowcharts showing how the monkeys and bananas would behave in the system.</p>
+                <div class="in-text-image">
+                    <img src="images/Monkey flow chart.png" alt="Flow chart of Monkey's behavior" />
+                    <span>Flow chart of Monkey's behavior</span>
+                </div>
+                <div class="in-text-image">
+                    <img src="images/Banana flow chart.png" alt="Flow chart of Banana's behavior" />
+                    <span>Flow chart of Banana's behavior</span>
+                </div>
+                <p>This makes an early buleprint for the ecosystem.</p>
+            </section>
+
+            <section>
+                <h2>
+                    Step 2: Prepare the Assets
+                </h2>
+                <p>For the assets, I eventually decided to make the ecosystem operate in a 2D space where everything stands on the same ground surface.</p>
+                <p>I then drew a sketch using Figma to indicate how the island may look like.</p>
+                <div class="in-text-image">
+                    <img src="images/Sketch.png" alt="Sketch of the island" />
+                    <span>Sketch of the island</span>
+                </div>
+                <p>I then made every other assets following this style.</p>
+                <div class="in-text-image">
+                    <img src="images/Assets.png" alt="Assets overview" />
+                    <span>Assets overview</span>
+                </div>
+                <p>Now we can start coding the system!</p>
+            </section>
+
+            <section>
+                <h2>
+                    Step 3: Objects scripts
+                </h2>
+                <h3>
+                    <em>
+                        Island.js
+                    </em>
+                </h3>
+                <p>In order to have a ground for everything to stand on. I started by coding the Island.</p>
+                <p>Most of this script is to create the visual of the island. However there is a few useful functions such as onIsland(), that will return a boolean representing if the input location is on the island or not.</p>
+                <div class="in-text-image">
+                    <img src="images/Island js.png" alt="Island.js script" />
+                    <span>Island.js script</span>
+                </div>
+                <p>Now I can construct the island by giving it a width and a height (Later I made the island width proportional to the width and height stayed static).</p>
+                </br>
+                
+                <h3>
+                    <em>
+                        Banana.js & Fertilizer.js
+                    </em>
+                </h3>
+                <p>Next, I looked at Banana and Fertilizer's script.</p>
+                <p>Because the bananas would drop from the tree, I implemented its movement by giving it a downward acceleration and a random side-way velocity.</p>
+                <p>I also implemented a timer behavior that will lower the banana's "life" and change it color based on the frameCount. Same goes for the Fertilizer.</p>
+                <p>It also has a chance to grow into a tree if there's fertilizer nearby. The chance is scaled by how many existing trees near it, the more trees the lower the chance.</p>
+                <div class="in-text-image">
+                    <img src="images/Banana js.png" alt="Banana.js script" />
+                    <span>Banana.js script</span>
+                </div>
+                <p>Now I can spawn bananas by inputing x & y coordinates.</p>
+                </br>
+                
+                <h3>
+                    <em>
+                        BananaTree.js
+                    </em>
+                </h3>
+                <p>After bananas, it's time to look at the tree's script.</p>
+                <p>The main function of a banana tree is to grow banana. So I used a similar timer behavior to have bananas randomly spawn from top of the tree.</p>
+                <p>I also made the trees vary by size, speed to bear bananas and lifelength.</p>
+                <div class="in-text-image">
+                    <img src="images/BananaTree js.png" alt="BananaTree.js script" />
+                    <span>BananaTree.js script</span>
+                </div>
+                <p>We have trees that grow bananas now.</p>
+                </br>
+
+                <h3>
+                    <em>
+                        Monkey.js
+                    </em>
+                </h3>
+                <p>Lastly, the Monkey's script</p>
+                <p>Monkeys have a special movement logic. Each moneky has a random maxspeed, once spawned it will accelerate to max speed in one direction. When it reaches the edge of the island, it turn to the other direction and keeps moving.</p>
+                <p>For the monkey's life, I used the same timer logic. On top of that, they regenerate health by eating to full hunger.</p>
+                <p>Speaking of eating, the monkeys can pickup bananas and eat them to gain hunger value. When they eat, they also poop, which becomes fertilizer for bananas to grow.</p>
+                <p>If they are not hungry, they can hold the banana and move around untill hungry or finding a better banana.</p>
+                <p>Because of this motion, monkey can move bananas around and potentially spread banana trees across the island.</p>
+                <p>Lastly, if monkeys are full and health, they can mate and born babys.</p>
+                <div class="in-text-image">
+                    <img src="images/Monkey js.png" alt="Monkey.js script" />
+                    <span>Monkey.js script</span>
+                </div>
+                <p>With Monkeys inplace, the island is finally alive.</p>
+            </section>
+
+            <section>
+                <h2>
+                    Step 4: UIs
+                </h2>
+                <p>After the island can function on it's own. Users should be able interact with it.</p>
+                <div class="in-text-image">
+                    <img src="images/UI.png" alt="Functioning island" />
+                    <span>Functioning island</span>
+                </div>
+                <p>I added buttons for user to spawn Monkeys, Bananas or BananaTrees on the island. I also add a clear all button in case things get out of hand.</p>
+                <p>Using these buttons, you can started building your own little monkey island.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/UI interaction.mp4" type="video/mp4">
+                    </video>
+                    <span>UI interactions</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Conclusion
+                </h2>
+                <p>Have fun watching the little system run!</p>
+                <p>You can also access it <a href="https://stevewu-accd.github.io/GIXD-503A/WK10/index.html">here</a>.</p>
+                <div class="in-text-image">
+                    <iframe src="https://editor.p5js.org/stevewu-accd/full/iizYeLieY"></iframe>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>All rights reserved © 2025 Steve Wu</p>
+        <button id="footerBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+    </footer>
+    <script src="script.js"></script>
+    <script src="../../scripts/btnScroll.js"></script>
+</body>
+</html>
