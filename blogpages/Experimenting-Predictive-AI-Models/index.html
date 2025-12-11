@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimenting Predictive AI Models</title>
+    <link rel="icon" type="image/x-icon" href="../../images/icons/favicon.ico?">
+    <link rel="stylesheet" href="../../stylesheet/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="topBtnAnchor"></div><div id="footerBtnAnchor"></div>
+    <nav>
+        <div>
+            <a id="homeBtn" href="../../index.html">
+                <img src="../../images/icons/Blog Logo.png" alt="Blog Logo">
+            </a>
+            <p>
+                <strong>Experimenting Predictive AI Models:</strong> 
+                Hand & Face Tracking
+                <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD 11 Dec, 2025</span>
+            </p>
+        </div>
+
+        <button id="topBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+    </nav>
+    <header>
+        <img src="images/banner.png" alt="banner"/>
+    </header>
+    <main>
+        <article>
+            <section>
+                <h1>
+                    <strong>Experimenting Predictive AI Models:</strong></br>
+                    Hand & Face Tracking</br>
+                    <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD</span>
+                    <span>11 December, 2025</span>
+                </h1>
+            </section>
+                
+            <section>
+                <h2>
+                    Introduction
+                </h2>
+                <p>
+                    This is part 1 of the last project of GIXD 503. This week, we experimented with predictive AI models and built applications using ML5.js library. You can view the code for <a href="https://editor.p5js.org/stevewu-accd/full/VinTar3Ax">Hand & Face Tracking Keypoints</a>, <a href="https://editor.p5js.org/stevewu-accd/full/V4gst0VRO">Pinch Gesture Detection</a> and <a href="https://editor.p5js.org/stevewu-accd/full/OABl-Xl-i">Banana island with Hand Control!</a>. (Camera access required)
+                </p>
+            </section>
+
+            <section>
+                <h2>
+                    Trying out the models
+                </h2>
+                <p>There are several AI models introduced in this project, such as the image classification model <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a>,  and handpose/gesture/faceMesh tracking model <a href="https://ml5js.org/">ml5</a>.</p>
+                <p>ML5.js library has incorporated these models to have them operate with P5.js library. Which is familiar to us from last few week.</p>
+                <p>With these models, I can now track my hand or face from a video feed in a P5.js sketch.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/face and hand tracking.mp4" type="video/mp4">
+                    </video>
+                    <span>face and hand tracking in P5.js</span>
+                </div>
+                <p>The model provides quite detailed tracking data including 3D data points. I also gave it a try.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/hand tracking 3d.mp4" type="video/mp4">
+                    </video>
+                    <span>hand tracking with 3D landmarks</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Gesture Detection
+                </h2>
+                <p>Next, I tried to add some behavior and incorporate them into my sketches.</p>
+                <p>I first tried having it recognize a pinch gesture.</p>
+                <div class="codeblock"><pre><code>
+if (hands[0]) {
+    let hand = hands[0];
+    let indexX = hand.index_finger_tip.x;
+    let indexY = hand.index_finger_tip.y;
+    let thumbX = hand.thumb_tip.x;
+    let thumbY = hand.thumb_tip.y;
+    push();
+    fill(255, 255, 255);
+    if (dist(indexX, indexY, thumbX, thumbY) < 50) {
+    fill(0, 255, 0);
+    }
+    circle((indexX + thumbX) * 0.5, (indexY + thumbY) * 0.5, 20);
+    pop();
+}
+                </code></pre></div>
+                <p>By taking the coordinates of index finger tip and thumb tip, I can caculate the distance between them. If they appear less then 50px on screen, means I'm doing a pinch.</p>
+                <p>In this block of code I also drew a circle between my index finger tip and thumb tip, and have it change color from white to green when a pinch is detected.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/hand pinch.mp4" type="video/mp4">
+                    </video>
+                    <span>Pinch gesture detected!</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Adding to sketch
+                </h2>
+                <p>Lastly, I tried to incorporate the models in my previous sketches.</p>
+                <p>I thought of <a href="../Banana-Island-Documentation/index.html">the Monkey Island</a> sketch and do my experiments there. I first addjusted the system so that things would not disappear (dies) when I try to grab them.</p>
+                <p>Then I loaded the hand tracking model and created a pinch cursor between my index finger tip and thumb tip. With a new <code>pinching</code> boolean in each object class file. I can stop the object from moving on its own when it's being pinched. Now when I pinch near an object, I change their <code>pinching</code> to true, and have their <code>pos</code> set to the pinch cursor position.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/monkey pinch.mp4" type="video/mp4">
+                    </video>
+                    <span>Banana and Moneky being pinched</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Next Up
+                </h2>
+                <p>Next I'm planning to try incorporating the face detection to make another fun application. I'll link it <a href="#">here</a> when it's ready.</p>
+                <p>You can also access the sketches in this article here:</br>
+                    <a href="https://editor.p5js.org/stevewu-accd/full/VinTar3Ax">Hand & Face Tracking Keypoints</a></br>
+                    <a href="https://editor.p5js.org/stevewu-accd/full/V4gst0VRO">Pinch Gesture Detection</a></br>
+                    <a href="https://editor.p5js.org/stevewu-accd/full/OABl-Xl-i">Banana island with Hand Control!</a>
+                </p>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>All rights reserved © 2025 Steve Wu</p>
+        <button id="footerBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+    </footer>
+    <script src="script.js"></script>
+    <script src="../../scripts/btnScroll.js"></script>
+</body>
+</html>

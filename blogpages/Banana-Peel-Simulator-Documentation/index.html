@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Peel Simulator</title>
+    <link rel="icon" type="image/x-icon" href="../../images/icons/favicon.ico?">
+    <link rel="stylesheet" href="../../stylesheet/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="topBtnAnchor"></div><div id="footerBtnAnchor"></div>
+    <nav>
+        <div>
+            <a id="homeBtn" href="../../index.html">
+                <img src="../../images/icons/Blog Logo.png" alt="Blog Logo">
+            </a>
+            <p>
+                <strong>Banana Peel Simulator:</strong> 
+                ML5.js + P5.js Application
+                <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD 11 Dec, 2025</span>
+            </p>
+        </div>
+
+        <button id="topBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+    </nav>
+    <header>
+        <img src="images/banner.png" alt="banner"/>
+    </header>
+    <main>
+        <article>
+            <section>
+                <h1>
+                    <strong>Banana Peel Simulator:</strong></br>
+                    ML5.js + P5.js Application</br>
+                    <span>by Steve Wu | GIXD 503 Creative Prototyping | ACCD</span>
+                    <span>11 December, 2025</span>
+                </h1>
+            </section>
+                
+            <section>
+                <h2>
+                    Introduction
+                </h2>
+                <p>
+                    This is part 2 of the last project of GIXD 503. This week, I continued my exploration of ML5.js and created this new sketch. You can view the code <a href="https://editor.p5js.org/stevewu-accd/full/jKr2t8bXw">Here</a>. (Camera access required)
+                </p>
+            </section>
+
+            <section>
+                <h2>
+                    Step 1: Brainstorm
+                </h2>
+                <p>Since I want to try the face tracking model while continuing the spirit of the Bananas. I decided to build a banana eating simulation, and to add a decent amoung of the challenge, the bananas will have peels!</p>
+                <p>Also I came across this<a href="https://editor.p5js.org/tinywitchdraws/sketches/qkAQKu-oz">simple rigging sketch</a> by <em>tinywitchdraws</em> earlier and thought it may be interesting to play with it.</p>
+                <div class="in-text-image">
+                    <iframe src="https://editor.p5js.org/tinywitchdraws/full/qkAQKu-oz"></iframe>
+                    <span><em>tinywitchdraws</em>'s sketch</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Step 2: Prepare Assets
+                </h2>
+                <p>I happened to have a banana (totally didn't buy it just for this project) at home. So I took a few pictures of it and made a digital peel for it.</p>
+                <div class="in-text-image">
+                    <img src="images/Banana Photos.png" alt="Photos of a banana"/>
+                    <span>Photos of the banana + part of the peel</span>
+                </div>
+                <p>I also need a hand to peel and a mouth to eat the banana. As well as some icons for the UI.</p>
+                <div class="in-text-image">
+                    <img src="images/other assets.png" alt="Other assets"/>
+                    <span>Other Assets</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Step 3: Make The Peels
+                </h2>
+                <p>I then started working on creating peels using the logic from <a href="https://editor.p5js.org/tinywitchdraws/sketches/qkAQKu-oz">the rigging sketch</a>.</p>
+                <p>The chain in the sketch can be dragged around freely, but I wish to have one of it's end be stable (connected to the banana). So I modified some of the code from the sketch and got this.</p>
+                <div class="in-text-image">
+                    <iframe src="https://editor.p5js.org/stevewu-accd/full/_etVfsTl_"></iframe>
+                    <span>Chain with a stable endpoint</span>
+                </div>
+                <p>Now if I connect these dots and give it yellow color and a thick width. I get a banana peel!</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/banana peel chain.mp4" type="video/mp4">
+                    </video>
+                    <span>Banana peel chain</span>
+                </div>
+                <p>With these code, I created a <code>BananaPeel</code> class. With a few additional parameter, I can addjust the curvature and length of the chain when it's constructing. Eventually, I can wrap these peels over the banana asset and have a complete banana!</p>
+                <div class="in-text-image">
+                    <img src="images/warping banana.png" alt="Banana being wrapped"/>
+                    <span>Banana being wrapped</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Step 4: Adding Hand & Mouth
+                </h2>
+                <p>It's time to add hand and face tracking. With the ml5 model, I can gather the tracking data of hands and faces in the video feed. Digging into these data I found the position of <code>index_finger_tip</code>, <code>thumb_tip</code>, and <code>lips</code>.</p>
+                <p>Then I align the hand asset to the position between my index finger tip and thumb tip so it follows my hand. When I pinch, I swap the asset to the pinching hand asset so it also apear to pinch.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/hand pinching.mp4" type="video/mp4">
+                    </video>
+                    <span>Monkey Hand Pinching</span>
+                </div>
+                <p>Same goes to mouth, I put the mouth asset at <code>lips.centerX</code> and <code>lips.centerY</code>. Then I calculated the distance between <code>lips.keypoints[36]</code>(upper lip) and <code>lips.keypoints[26]</code>(lower lip) to detect if mouth is open or close, and switch the mouth asset correspondingly.</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/mouth biting.mp4" type="video/mp4">
+                    </video>
+                    <span>Monkey Mouth Biting</span>
+                </div>
+                <p>Lastly, I added the same piching to grab logic from <a href="../Experimenting-Predictive-AI-Models/index.html">monkey island with hand control</a> to make the banana peels move with the hand. And when the peels are all peeled down, opening and closing the mouth let you take a bite at the banana! (video showcase in the next section)</p>
+            </section>
+
+            <section>
+                <h2>
+                    Last step: Add UI & Showcase
+                </h2>
+                <p>Lastly, I added some UI so you can hide the video or change how hand/mouth appear. I also added a hand-drawn tutorial screen so people can learn how to eat a banana. :D</p>
+                <p>Here is a video showcase, or you can <a href="https://editor.p5js.org/stevewu-accd/full/jKr2t8bXw">try it out</a> yourself! (camera access required)</p>
+                <div class="in-text-image">
+                    <video controls autoplay muted loop>
+                        <source src="images/showcase.mp4" type="video/mp4">
+                    </video>
+                    <span>Monkey Eating Banana :D</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>
+                    Conclusion
+                </h2>
+                <p>It's been a wonderful time in GIXD 503. I had a lot fun exploring P5.js and ML5.js with professor Maxim. Thanks for reading through my creative prototype journey, and stay toned for more!</p>
+                <p>You can also access the sketches in this article here:</br>
+                    <a href="https://editor.p5js.org/stevewu-accd/full/jKr2t8bXw">Banana Peel Simulator</a> (camera required)</br>
+                    <a href="https://editor.p5js.org/tinywitchdraws/sketches/qkAQKu-oz">simple rigging sketch</a> by <em>tinywitchdraws</em></br>
+                    <a href="https://editor.p5js.org/stevewu-accd/full/_etVfsTl_">Chain with a stable endpoint</a>
+                </p>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>All rights reserved © 2025 Steve Wu</p>
+        <button id="footerBtn" class="scrollBtn"><img src="../../images/icons/arrow-up.svg" alt="top arrow icon"></button>
+    </footer>
+    <script src="script.js"></script>
+    <script src="../../scripts/btnScroll.js"></script>
+</body>
+</html>
